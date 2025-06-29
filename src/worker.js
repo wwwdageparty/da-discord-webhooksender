@@ -45,7 +45,7 @@ export default {
             });
             if (getRes.ok) {
               const blob = await getRes.blob();
-              const name = url.split('/').pop() || 'file';
+              const name = new URL(url).pathname.split('/').pop() || 'file';
               files.push({ name, blob });
             }
           }
